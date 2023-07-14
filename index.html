@@ -35,7 +35,6 @@
         let called = false;
         document.querySelector(".hidden").classList.remove("hidden");
         goBack();
-        // window.history.back();
         function goBack() {
             if (called) return;
             called = true;
@@ -52,7 +51,6 @@
                 }
             } else {
                 // No history to go back to
-                // window.location.href = 'fallbackUrl.html';
                 document.querySelector("#redir").innerHTML = "Sorry! I can't find a page to return you to.  ( ✿˃̣̣̥᷄⌓˂̣̣̥᷅ )\nYour JavaScript is enabled, but you'll need to manually navigate to your desired page.";
             }
         }
