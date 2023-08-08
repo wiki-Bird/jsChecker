@@ -22,8 +22,18 @@
 <body>
     <noscript>
         <h1>JavaScript Disabled</h1>
-        <h2>JavaScript needs to be enabled to use this site.</h2>
-        <p>Enable JavaScript, then <a href="" onclick="goBack()">Go Back</a></p>
+        <h2>
+            JavaScript needs to be enabled to use this site. 
+            <br>
+            Enable JavaScript, then <a href="" onclick="goBack()">Go Back</a>.
+        </h2>
+        <div class="links">
+            <b>How To:</b>
+            <a href="https://support.google.com/adsense/answer/12654" target="_blank" rel="noopener noreferrer">Chrome</a>,
+            <a href="https://support.mozilla.org/kb/javascript-settings-for-interactive-web-pages#w_for-advanced-users" target="_blank" rel="noopener noreferrer">Firefox</a>,
+            <a href="https://support.apple.com/en-gb/guide/safari/ibrw1074/mac" target="_blank" rel="noopener noreferrer">Safari</a>,
+            <a href="https://support.microsoft.com/en-gb/office/enable-javascript-7bb9ee74-6a9e-4dd1-babf-b0a1bb136361" target="_blank" rel="noopener noreferrer">Edge</a>
+        </div>
     </noscript>
 
     <div class="hidden">
@@ -38,7 +48,6 @@
         function goBack() {
             if (called) return;
             called = true;
-            
             if (window.history.length > 1) {
                 for (var i = window.history.length - 1; i >= 0; i--) {
                     var state = window.history.state;
@@ -49,9 +58,11 @@
                     }
                     window.history.go(-1);
                 }
-            } else {
-                // No history to go back to
+            } else { // No history to go back to
                 document.querySelector("#redir").innerHTML = "Sorry! I can't find a page to return you to.  ( ✿˃̣̣̥᷄⌓˂̣̣̥᷅ )\nYour JavaScript is enabled, but you'll need to manually navigate to your desired page.";
+                const newP = document.createElement("p");
+                newP.innerHTML = "If you believe this is an error, please <a href='https://github.com/wiki-Bird/jsChecker/issues' target='_blank' rel='noopener noreferrer'>let us know</a>.";
+                document.querySelector("#redir").parentElement.appendChild(newP);
             }
         }
     </script>
